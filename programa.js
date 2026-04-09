@@ -1,10 +1,16 @@
-let numeroDecimal = 87
+let numeroDecimal = document.getElementById("input")
 let numeroBinario = []
+const button = document.getElementById("button")
+const resultado = document.getElementById("resultado")
 
-while(numeroDecimal >= 1){
-    numeroBinario.unshift(numeroDecimal % 2)
-    numeroDecimal = Math.trunc(numeroDecimal / 2 )
+function gerarBinario(){
+    let valorNumero = Number(numeroDecimal.value)
+    while(valorNumero >= 1){
+        numeroBinario.unshift(valorNumero % 2)
+        valorNumero = Math.trunc(valorNumero / 2 )
+    }
+    
+    resultado.innerHTML = numeroBinario.join("")
 }
 
-
-console.log(numeroBinario.join(""))
+button.addEventListener("click", gerarBinario)
